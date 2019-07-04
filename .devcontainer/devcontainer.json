@@ -1,0 +1,14 @@
+{
+	"name": "Quarkus",
+	"dockerFile": "Dockerfile",
+	"appPort": 8080,
+	"extensions": [
+		"vscjava.vscode-java-pack",
+		"redhat.vscode-xml",
+		"davidanson.vscode-markdownlint"
+	],
+	"settings":{
+		"java.home": "/docker-java-home",
+		"terminal.integrated.shell.linux": "/bin/bash"
+	}
+}
