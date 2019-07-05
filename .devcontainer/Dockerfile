@@ -37,6 +37,9 @@ ENV MAVEN_CONFIG "/workspaces/vscode-remote-quarkus/.m2"
 
 ADD settings.xml /usr/share/maven/conf/
 
+# docker
+RUN yum -y install docker-cli.x86_64
+
 # bash config
 ADD .bashrc $USER_HOME_DIR
 
