@@ -26,7 +26,7 @@ ls -l target
 mvn clean verify -Pnative
 ```
 
-## build dockerfile with native executable
+## build docker image with native executable
 
 ```bash
 docker build -f src/main/docker/Dockerfile.native -t quarkus/getting-started .
