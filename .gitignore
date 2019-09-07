@@ -335,3 +335,6 @@ target
 
 # maven repo
 .m2/
+
+# history
+.bash_history
