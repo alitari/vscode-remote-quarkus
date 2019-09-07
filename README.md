@@ -6,6 +6,8 @@
 mvn clean compile quarkus:dev
 ```
 
+call endpoint with `curl localhost:8080/hello`
+
 ## test
 
 ```bash
@@ -23,7 +25,7 @@ ls -l target
 ## run integration tests against native executable
 
 ```bash
-mvn clean verify -Pnative
+mvn verify -Pnative
 ```
 
 ## build docker image with native executable
