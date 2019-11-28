@@ -3,12 +3,12 @@
 # Licensed under the MIT License. See LICENSE in the project root for license information.
 #-----------------------------------------------------------------------------------------
 
-FROM oracle/graalvm-ce:19.1.0
+FROM oracle/graalvm-ce:19.2.1
 
 # install native-image component
 RUN gu install native-image
 
-ENV GRAALVM_HOME=/opt/graalvm-ce-19.1.0
+ENV GRAALVM_HOME=/opt/graalvm-ce-19.2.1
 
 # Configure apt
 RUN yum update -y \
@@ -41,5 +41,5 @@ ADD settings.xml /usr/share/maven/conf/
 RUN yum -y install docker-cli.x86_64
 
 # bash config
-ADD .bashrc $USER_HOME_DIR
+ADD .bashrc /root
 
