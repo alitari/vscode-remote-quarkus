@@ -33,3 +33,9 @@ mvn verify -Pnative
 ```bash
 docker build -f src/main/docker/Dockerfile.native -t quarkus/getting-started .
 ```
+
+## run docker image with native executable ( doesn't work in devcontainer)
+
+```bash
+docker run --name getting-started -d -p 8081:8080 quarkus/getting-started
+```
