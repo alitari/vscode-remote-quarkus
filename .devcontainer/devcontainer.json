@@ -5,6 +5,7 @@
 	"extensions": [
 		"vscjava.vscode-java-pack",
 		"redhat.vscode-xml",
+		"redhat.vscode-quarkus",
 		"davidanson.vscode-markdownlint"
 	],
 	"runArgs": [
