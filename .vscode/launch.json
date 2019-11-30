@@ -7,9 +7,17 @@
             "cwd": "${workspaceFolder}",
             "console": "internalConsole",
             "stopOnEntry": false,
-            "mainClass": "com.mycompany.app.App",
+            "mainClass": "org.acme",
             "args": "",
-            "projectName": "my-app"
+            "projectName": "code-with-quarkus"
+        },
+        {
+            "preLaunchTask": "quarkus:dev",
+            "type": "java",
+            "request": "attach",
+            "hostName": "localhost",
+            "name": "Debug Quarkus application",
+            "port": 5005
         }
     ]
 }
