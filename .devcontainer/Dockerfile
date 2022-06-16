@@ -8,12 +8,6 @@ RUN yum -y update && \
     # # Allow for a consistant java home location for settings - image is changing over time
     # && if [ ! -d "/docker-java-home" ]; then ln -s "${JAVA_HOME}" /docker-java-home; fi
 
-
-# # install native-image component
-# RUN gu install native-image
-
-# ENV GRAALVM_HOME=/opt/graalvm-ce-19.2.1
-
 # Install tools
 
 # # mvn
@@ -32,8 +26,10 @@ ENV MAVEN_CONFIG "/workspaces/vscode-remote-quarkus/.m2"
 
 ADD settings.xml /usr/share/maven/conf/
 
-# # docker
-# RUN yum -y install docker-cli.x86_64
+# docker
+RUN wget https://download.docker.com/linux/static/stable/x86_64/docker-20.10.2.tgz && \
+    tar xzvf docker-20.10.2.tgz && \
+    cp docker/* /usr/bin/
 
 ARG USERNAME=alitari
 ARG USER_UID=1000
@@ -47,7 +43,11 @@ RUN groupadd --gid $USER_GID $USERNAME && \
 
 
 # bash config
-ADD .bashrc /home/alitari
+ADD --chown=alitari:alitari .bashrc /home/alitari
+
 
 USER $USERNAME
 
+# install quarkus cli
+RUN curl -Ls https://sh.jbang.dev | bash -s - trust add https://repo1.maven.org/maven2/io/quarkus/quarkus-cli/ && \
+    curl -Ls https://sh.jbang.dev | bash -s - app install --fresh --verbose --force quarkus@quarkusio

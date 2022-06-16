@@ -33,11 +33,14 @@ mvn verify -Pnative
 ## build docker image with native executable
 
 ```bash
-docker build -t quarkus/getting-started .
+sudo docker build -f src/main/docker/Dockerfile.native -t quarkus-quickstart/getting-started .
 ```
 
 ## run docker image with native executable
 
 ```bash
-docker run --name getting-started -d -p 8081:8080 quarkus/getting-started
+sudo docker run -i --rm -p 8080:8080 quarkus-quickstart/getting-started
+# from your browser: http://localhost:8080/hello
+curl -v http://localhost:8080/hello
+
 ```
