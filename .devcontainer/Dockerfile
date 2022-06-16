@@ -3,7 +3,7 @@ FROM registry.redhat.io/quarkus/mandrel-21-jdk17-rhel8:21.3-18
 USER root
 
 RUN yum -y update && \
-    yum -y install git wget sudo
+    yum -y install git wget sudo zip
     # #
     # # Allow for a consistant java home location for settings - image is changing over time
     # && if [ ! -d "/docker-java-home" ]; then ln -s "${JAVA_HOME}" /docker-java-home; fi
