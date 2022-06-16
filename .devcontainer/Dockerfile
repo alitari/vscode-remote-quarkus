@@ -41,13 +41,15 @@ RUN groupadd --gid $USER_GID $USERNAME && \
     echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME && \
     chmod 0440 /etc/sudoers.d/$USERNAME
 
-
-# bash config
-ADD --chown=alitari:alitari .bashrc /home/alitari
-
-
 USER $USERNAME
+
+RUN bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 
 # install quarkus cli
 RUN curl -Ls https://sh.jbang.dev | bash -s - trust add https://repo1.maven.org/maven2/io/quarkus/quarkus-cli/ && \
     curl -Ls https://sh.jbang.dev | bash -s - app install --fresh --verbose --force quarkus@quarkusio
+
+RUN echo 'shopt -s histappend' >> /home/alitari/.bashrc && \
+    echo 'PROMPT_COMMAND=history -a;$PROMPT_COMMAND' >> /home/alitari/.bashrc && \
+    sed -i 's/OSH_THEME="font"/OSH_THEME="powerline-plain"/g' /home/alitari/.bashrc && \
+    echo 'HISTFILE=/workspaces/vscode-remote-quarkus/.bash_history' >> /home/alitari/.bashrc
