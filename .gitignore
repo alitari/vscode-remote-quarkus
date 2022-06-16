@@ -1,12 +1,10 @@
-
+.*
+!.gitignore
+!.gitattributes
+!.vscode/
 
 target/
 
-# maven repo
-.m2/
 
-# history
-.bash_history
 
-.project
-.classpath
+
