@@ -6,6 +6,8 @@
 mvn clean compile quarkus:dev
 ```
 
+or press `F5` in order to debug with vscode.
+
 call endpoint with `curl localhost:8080/hello`
 
 ## test
