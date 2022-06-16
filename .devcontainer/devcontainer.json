@@ -4,8 +4,10 @@
 	"appPort": 8080,
 	"extensions": [
 		"vscjava.vscode-java-pack",
+		"vscjava.vscode-maven",
 		"redhat.vscode-xml",
 		"redhat.vscode-quarkus",
+		"redhat.fabric8-analytics",
 		"davidanson.vscode-markdownlint"
 	],
 	"runArgs": [
@@ -13,11 +15,11 @@
 		"/var/run/docker.sock:/var/run/docker.sock"
 	],
 	"settings":{
-		"java.home": "/docker-java-home",
-		"terminal.integrated.shell.linux": "/bin/bash",
+		"java.jdt.ls.java.home": "/usr/lib/jvm/java-17-openjdk",
 		"remote.extensionKind": {
 			"peterjausovec.vscode-docker": "workspace"
-		}
+		},
+		"xml.java.home": "/usr/lib/jvm/java-17-openjdk"
 	}
 
 }
