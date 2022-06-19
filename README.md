@@ -11,7 +11,7 @@ Clone the branch of your choice and choose from vscode command palette `Remote c
 
 | branch | Details |
 | ------ | ------- |
-| [`2.9.2.Final-java17`](https://github.com/alitari/vscode-remote-quarkus/tree/2.9.2.Final-java17) | Quarkus 2.9.2, java17, native-image 21.3.2.0-1b5 Mandrel Distribution. quarkus resteasy example project|
+| [`2.9.2.Final-java17-plain](https://github.com/alitari/vscode-remote-quarkus/tree/2.9.2.Final-java17-plain) | Quarkus 2.9.2, java17, native-image 21.3.2.0-1b5 Mandrel Distribution.|
 
 ## devcontainer user
 
