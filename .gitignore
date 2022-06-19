@@ -1,11 +1,4 @@
 .*
+!.devcontainer
 !.gitignore
-!.gitattributes
-!.vscode/
-!.dockerignore
-!.devcontainer/
 target/
-
-
-
-

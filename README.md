@@ -1,12 +1,22 @@
 # Vscode Remote Development Containers: [Quarkus](https://quarkus.io)
 
+## create project
+
+```bash
+# Create a project with groupId=com.foo, artifactId=bar, and version=1.0
+quarkus create app --no-wrapper --maven --java=17 com.foo:bar:1.0 && \
+mv bar/src . && \
+mv bar/pom.xml . && \
+rm -rf bar
+```
+
 ## quarkus dev mode
 
 ```bash
 mvn quarkus:dev
 ```
 
-or press `F5` in order to debug with vscode.
+or choose `Debug Quarkus` in vscode command palette in order to debug with vscode.
 
 call endpoint with `curl localhost:8080/hello` or navigate to `http://localhost:8080` on your host browser
 
