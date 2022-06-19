@@ -26,20 +26,24 @@ ENV MAVEN_CONFIG "/workspaces/vscode-remote-quarkus/.m2"
 
 ADD settings.xml /usr/share/maven/conf/
 
-# docker
-RUN wget https://download.docker.com/linux/static/stable/x86_64/docker-20.10.2.tgz && \
-    tar xzvf docker-20.10.2.tgz && \
-    cp docker/* /usr/bin/
-
 ARG USERNAME=alitari
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
+ARG DOCKER_GID=1001
 
 # Create the user
-RUN groupadd --gid $USER_GID $USERNAME && \
+RUN userdel quarkus && \
+    groupadd --gid $USER_GID $USERNAME && \
     useradd --uid $USER_UID --gid $USER_GID -m $USERNAME && \
     echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME && \
     chmod 0440 /etc/sudoers.d/$USERNAME
+
+# docker
+RUN wget https://download.docker.com/linux/static/stable/x86_64/docker-20.10.2.tgz && \
+    tar xzvf docker-20.10.2.tgz && \
+    cp docker/* /usr/bin/ && \
+    groupadd --gid $DOCKER_GID docker && \
+    usermod -aG docker $USERNAME
 
 USER $USERNAME
 
