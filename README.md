@@ -1,14 +1,14 @@
 # Vscode Remote Development Containers: [Quarkus](https://quarkus.io)
 
-## dev mode
+## quarkus dev mode
 
 ```bash
-mvn clean compile quarkus:dev
+mvn quarkus:dev
 ```
 
 or press `F5` in order to debug with vscode.
 
-call endpoint with `curl localhost:8080/hello`
+call endpoint with `curl localhost:8080/hello` or navigate to `http://localhost:8080` on your host browser
 
 ## test
 
@@ -19,9 +19,11 @@ mvn clean test
 ## build native executable
 
 ```bash
+# show
+native-image --version
 mvn clean package -Pnative
 # Find executable in `target` directory.
-ls -l target
+ls -l target/*-runner
 ```
 
 ## run integration tests against native executable
@@ -33,13 +35,13 @@ mvn verify -Pnative
 ## build docker image with native executable
 
 ```bash
-sudo docker build -f src/main/docker/Dockerfile.native -t quarkus-quickstart/getting-started .
+docker build -f src/main/docker/Dockerfile.native -t quarkus-quickstart/getting-started .
 ```
 
 ## run docker image with native executable
 
 ```bash
-sudo docker run -i --rm -p 8080:8080 quarkus-quickstart/getting-started
+docker run -i --rm -p 8080:8080 quarkus-quickstart/getting-started
 # from your browser: http://localhost:8080/hello
 curl -v http://localhost:8080/hello
 
