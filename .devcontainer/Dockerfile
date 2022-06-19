@@ -4,11 +4,6 @@ USER root
 
 RUN yum -y update && \
     yum -y install git wget sudo zip
-    # #
-    # # Allow for a consistant java home location for settings - image is changing over time
-    # && if [ ! -d "/docker-java-home" ]; then ln -s "${JAVA_HOME}" /docker-java-home; fi
-
-# Install tools
 
 # # mvn
 ARG MAVEN_VERSION=3.8.6
