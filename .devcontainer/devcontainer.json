@@ -8,6 +8,7 @@
 		"redhat.vscode-xml",
 		"redhat.vscode-quarkus",
 		"redhat.fabric8-analytics",
+		"ms-azuretools.vscode-docker",
 		"davidanson.vscode-markdownlint"
 	],
 	"runArgs": [
