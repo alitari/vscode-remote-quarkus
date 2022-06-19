@@ -3,6 +3,7 @@
 This repo contains several [vscode devcontainers](https://code.visualstudio.com/docs/remote/containers) for Quarkus in order to start right away without any additional installations. On your workstation you only need:
 
 - a running [docker daemon](https://www.docker.com/)
+- account for docker registry `registry.redhat.io` which allows you to pull images from there
 - [vscode](https://code.visualstudio.com/) with [Remote Container extension](https://code.visualstudio.com/docs/remote/containers-tutorial)
 
 Clone the branch of your choice and choose from vscode command palette `Remote container: Open Folder in container...`
